@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Population by LSOA</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Population by LSOA</h1>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <label for="lad">Local authority</label>
+      <select id="lad"></select>
+      <p class="help">Click an LSOA on the map to see its population over time.</p>
+      <button id="clear" type="button">Show LAD total</button>
+      <p id="status" class="status"></p>
+    </aside>
+
+    <main class="content">
+      <div id="map"></div>
+      <div id="chart-wrap"><canvas id="chart"></canvas></div>
+    </main>
+  </div>
+
+  <footer>
+    Sources: ONS mid-year population estimates; ONS Open Geography Portal boundaries.
+    Contains public sector information licensed under the Open Government Licence v3.0.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="app.js"></script>
+</body>
+</html>
