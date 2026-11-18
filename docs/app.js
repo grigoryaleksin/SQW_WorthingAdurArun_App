@@ -99,8 +99,6 @@ function selectLsoa(layer, code) {
   if (selectedLayer) selectedLayer.setStyle(BASE_STYLE);
   selectedLayer = layer;
   layer.setStyle(SELECTED_STYLE);
-  layer.bringToFront();
-  if (ladLayer) ladLayer.bringToFront();
   drawChart(`Population: ${code}`, lsoaPopByCode.get(code));
 }
 
@@ -121,11 +119,9 @@ function loadLad(code) {
       layer.bindTooltip(lsoaCode, { sticky: true });
       layer.on({
         mouseover: () => {
-          if (layer !== selectedLayer) {
-            layer.setStyle(HOVER_STYLE);
-            layer.bringToFront();
-            if (ladLayer) ladLayer.bringToFront();
-          }
+          // Don't call bringToFront() here: re-ordering the SVG element under the
+          // cursor makes the browser lose mouseout/click events.
+          if (layer !== selectedLayer) layer.setStyle(HOVER_STYLE);
         },
         mouseout: () => {
           if (layer !== selectedLayer) layer.setStyle(BASE_STYLE);
