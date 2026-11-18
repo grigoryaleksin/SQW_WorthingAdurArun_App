@@ -16,7 +16,11 @@
     <aside class="sidebar">
       <label for="lad">Local authority</label>
       <select id="lad"></select>
-      <p class="help">Click an LSOA on the map to see its population over time.</p>
+      <div id="town-row" class="row" hidden>
+        <label for="town">Town (illustrative)</label>
+        <select id="town"></select>
+      </div>
+      <p class="help">Click an LSOA on the map to see its population over time. Towns are rough groupings of LSOAs, for illustration only.</p>
       <button id="clear" type="button">Show LAD total</button>
       <p id="status" class="status"></p>
     </aside>
@@ -29,6 +33,7 @@
 
   <footer>
     Sources: ONS mid-year population estimates; ONS Open Geography Portal boundaries.
+    Base maps: Esri, OpenStreetMap contributors, CARTO.
     Contains public sector information licensed under the Open Government Licence v3.0.
   </footer>
 
